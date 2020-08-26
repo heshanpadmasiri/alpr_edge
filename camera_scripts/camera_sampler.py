@@ -90,11 +90,12 @@ if __name__ == '__main__':
     if args.image:
         image = load_image(args.image,INPUT_SIZE_1)
     else:
-        image = take_image(INPUT_SIZE_1)
-    bbox = run_inference_bbox(args,image)[0]
-    box_coords = to_box_coords(bbox, INPUT_SIZE_1)
-    license_plate_img = crop_image(image,box_coords)
-    license_plate_img = resize_image(license_plate_img,INPUT_SIZE_2)
-    license_plate = run_recognition(args,license_plate_img)
-    print(license_plate)
+        while(True):
+            image = take_image(INPUT_SIZE_1)
+            bbox = run_inference_bbox(args,image)[0]
+            box_coords = to_box_coords(bbox, INPUT_SIZE_1)
+            license_plate_img = crop_image(image,box_coords)
+            license_plate_img = resize_image(license_plate_img,INPUT_SIZE_2)
+            license_plate = run_recognition(args,license_plate_img)
+            print(license_plate)
 
