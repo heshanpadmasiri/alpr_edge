@@ -133,3 +133,5 @@ models/
 sample_images/
 
 *.swp
+
+*.jpg
